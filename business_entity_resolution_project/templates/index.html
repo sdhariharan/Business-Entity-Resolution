@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business Entity Resolution</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head><body><main class="container">
+<header><div><h1>Business Entity Resolution</h1><p>AI-powered business record matching</p></div><span class="status">● Model Ready</span></header>
+<section class="stats">
+<div><small>Source 1</small><b id="s1">0</b></div><div><small>Source 2</small><b id="s2">0</b></div>
+<div><small>Source 3</small><b id="s3">0</b></div><div><small>Matches</small><b id="m">0</b></div>
+</section>
+<section class="panel"><h2>Upload Dataset</h2><p>Upload the three TSV files.</p>
+<div class="uploads">
+<label><b>Source 1</b><input id="f1" type="file" accept=".tsv"><span id="n1">No file selected</span></label>
+<label><b>Source 2</b><input id="f2" type="file" accept=".tsv"><span id="n2">No file selected</span></label>
+<label><b>Source 3</b><input id="f3" type="file" accept=".tsv"><span id="n3">No file selected</span></label>
+</div>
+<button id="run">Run Entity Resolution</button><div id="loading" class="hidden">Processing records...</div><div id="error" class="error hidden"></div>
+</section>
+<section id="results" class="panel hidden"><div class="result-head"><div><h2>Matching Results</h2><p>ML-generated entity matches</p></div><span>Threshold: <b id="threshold">-</b></span></div>
+<div class="table-wrap"><table><thead><tr><th>Source 1 Entity</th><th>Matched Entities</th></tr></thead><tbody id="body"></tbody></table></div>
+<div class="buttons"><a href="/api/download/matching">Download Matching Results</a><a href="/api/download/candidates">Download Candidates</a><a href="/api/download/submission">Download Submission ZIP</a></div>
+</section>
+<footer>Business Entity Resolution • ML-powered matching system</footer>
+</main><script src="{{ url_for('static',filename='app.js') }}"></script></body></html>
